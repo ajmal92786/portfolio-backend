@@ -5,15 +5,20 @@ const userRoutes = require("./routes/user.routes");
 const projectRoutes = require("./routes/project.routes");
 const skillRoutes = require("./routes/skill.routes");
 const contactRoutes = require("./routes/contact.routes");
+const spotifyRoutes = require("./routes/spotify.routes");
 
 const app = express();
 
 app.use(express.json());
 
+// Portfolio routes
 app.use("/api/profile", userRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/skills", skillRoutes);
 app.use("/api/contact", contactRoutes);
+
+// Spotify routes
+app.use("/spotify", spotifyRoutes);
 
 app.get("/", (req, res) => {
   return res.send(
